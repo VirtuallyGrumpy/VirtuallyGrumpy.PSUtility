@@ -1,7 +1,7 @@
 ---
 external help file: VirtuallyGrumpy.PSUtility-help.xml
 Module Name: VirtuallyGrumpy.PSUtility
-online version: https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/Source/docs/Get-CallerPreference.md
+online version: https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/Get-CallerPreference.md
 schema: 2.0.0
 ---
 
@@ -120,6 +120,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 I used the original script. The only changes I made was to move the comment based help to a separate file.
 
 ## RELATED LINKS
-[Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/Source/docs/Get-CallerPreference.md)
+[Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/Get-CallerPreference.md)
 [about_Preference_Variables]()
 

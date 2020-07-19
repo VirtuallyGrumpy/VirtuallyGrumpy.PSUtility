@@ -1,7 +1,7 @@
 ---
 external help file: Corvel.DCOps.Utility-help.xml
 Module Name: Corvel.DCOps.Core
-online version: https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/Source/docs/ConvertTo-EpochTime.md
+online version: https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-EpochTime.md
 schema: 2.0.0
 ---
 
@@ -60,5 +60,5 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/Source/docs/ConvertTo-EpochTime.md)
+[Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-EpochTime.md)
 [ConvertFrom-EpochTime]()

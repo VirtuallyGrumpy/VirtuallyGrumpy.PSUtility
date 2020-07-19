@@ -1,7 +1,7 @@
 ---
 external help file: Corvel.DCOps.Utility-help.xml
 Module Name: Corvel.DCOps.Core
-online version: https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/Source/docs/ConvertTo-Hashtable.md
+online version: https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-Hashtable.md
 schema: 2.0.0
 ---
 
@@ -68,5 +68,5 @@ Adam Bertram, 4sysops.com
 Retrieved from https://4sysops.com/archives/convert-json-to-a-powershell-hash-table/
 
 ## RELATED LINKS
-[Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/Source/docs/ConvertTo-Hashtable.md)
+[Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-Hashtable.md)
 
