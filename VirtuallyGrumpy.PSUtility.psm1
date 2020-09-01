@@ -31,3 +31,5 @@ if (Test-Path "$ModuleRoot\private") {
 Export-ModuleMember -Function $ExportedFunctions
 #endregions LOAD_SCRIPTS
 #endregion REMOVE_CODE
+New-Alias -Name ConvertTo-EpochTime -Value ConvertTo-LogInsightTime -Force
+New-Alias -Name ConvertFrom-EpochTime -Value ConvertFrom-LogInsightTime -Force
