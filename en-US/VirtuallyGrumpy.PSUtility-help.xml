@@ -2,23 +2,23 @@
 <helpItems schema="maml" xmlns="http://msh">
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>ConvertFrom-EpochTime</command:name>
+      <command:name>ConvertFrom-JavaTimestamp</command:name>
       <command:verb>ConvertFrom</command:verb>
-      <command:noun>EpochTime</command:noun>
+      <command:noun>JavaTimestamp</command:noun>
       <maml:description>
-        <maml:para>Converts an integer value representing an Unix Epoch time to a DateTime value.</maml:para>
+        <maml:para>Converts a Java timestamp (milliseconds since Unix epoch) to a date.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>Converts an integer value representing an Unix Epoch time to a DateTime value.</maml:para>
+      <maml:para>Converts a Java timestamp (milliseconds since Unix epoch) to a date.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>ConvertFrom-EpochTime</maml:name>
-        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
-          <maml:name>EpochTime</maml:name>
+        <maml:name>ConvertFrom-JavaTimestamp</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+          <maml:name>JavaTimestamp</maml:name>
           <maml:Description>
-            <maml:para>An integer representing an Unix Epoch time.</maml:para>
+            <maml:para>The JavaTimestamp to convert to a date.</maml:para>
           </maml:Description>
           <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
           <dev:type>
@@ -28,9 +28,9 @@
           <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
-          <maml:name>ToLocalTime</maml:name>
+          <maml:name>LocalTime</maml:name>
           <maml:Description>
-            <maml:para>Return the DateTime object in local time.</maml:para>
+            <maml:para>If specified, the date is returned in local time, otherwise the date is returned in UTC time.</maml:para>
           </maml:Description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
@@ -41,10 +41,10 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
-        <maml:name>EpochTime</maml:name>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+        <maml:name>JavaTimestamp</maml:name>
         <maml:Description>
-          <maml:para>An integer representing an Unix Epoch time.</maml:para>
+          <maml:para>The JavaTimestamp to convert to a date.</maml:para>
         </maml:Description>
         <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
         <dev:type>
@@ -54,9 +54,9 @@
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
-        <maml:name>ToLocalTime</maml:name>
+        <maml:name>LocalTime</maml:name>
         <maml:Description>
-          <maml:para>Return the DateTime object in local time.</maml:para>
+          <maml:para>If specified, the date is returned in local time, otherwise the date is returned in UTC time.</maml:para>
         </maml:Description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
@@ -94,21 +94,144 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; -106851600000 | ConvertFrom-EpochTime
-
-Saturday, August 13, 1966 7:00:00 AM</dev:code>
+        <dev:code>PS C:\&gt; $Date = Get-Date
+PS C:\&gt; $Date
+Wednesday, September 2, 2020 12:45:58 PM
+PS C:\&gt; $Timestamp = ConvertTo-JavaTimestamp -Date $Date
+PS C:\&gt; $Timestamp
+1599075958216
+PS C:\&gt; ConvertFrom-JavaTimestamp -JavaTimestamp $Timestamp -LocalTime
+Wednesday, September 2, 2020 12:45:58 PM</dev:code>
         <dev:remarks>
-          <maml:para>Takes an integer value representing an Unix Epoch time and converts it to a DateTime value.</maml:para>
+          <maml:para>The above example shows converting a date to a Java timestamp and then converting the timestamp back to a date.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
         <maml:linkText>Online Version</maml:linkText>
-        <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertFrom-EpochTime.md</maml:uri>
+        <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertFrom-JavaTimestamp.md</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
-        <maml:linkText>ConvertTo-EpochTime</maml:linkText>
+        <maml:linkText>ConvertTo-JavaTimestamp</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>ConvertFrom-UnixTime</command:name>
+      <command:verb>ConvertFrom</command:verb>
+      <command:noun>UnixTime</command:noun>
+      <maml:description>
+        <maml:para>Converts a Unix time (seconds since Unix epoch) to a date.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Converts a Unix time (seconds since Unix epoch) to a date.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>ConvertFrom-UnixTime</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+          <maml:name>UnixTime</maml:name>
+          <maml:Description>
+            <maml:para>The Unix time to convert to a date.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>LocalTime</maml:name>
+          <maml:Description>
+            <maml:para>If specified, the date is returned in local time, otherwise the date is returned in UTC time.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>LocalTime</maml:name>
+        <maml:Description>
+          <maml:para>If specified, the date is returned in local time, otherwise the date is returned in UTC time.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+        <maml:name>UnixTime</maml:name>
+        <maml:Description>
+          <maml:para>The Unix time to convert to a date.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Int64</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $Date = Get-Date
+PS C:\&gt; $Date
+Wednesday, September 2, 2020 12:45:58 PM
+PS C:\&gt; $UnixTime = ConvertTo-UnixTime-Date $Date
+PS C:\&gt; $UnixTime
+1599075958
+PS C:\&gt; ConvertFrom-UnixTime -UnixTime $UnixTime -LocalTime
+Wednesday, September 2, 2020 12:45:58 PM</dev:code>
+        <dev:remarks>
+          <maml:para>The above example shows converting a date to Unix time and then converting the value back to a date.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertFrom-UnixTime.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>ConvertTo-UnixTime</maml:linkText>
         <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
@@ -349,95 +472,6 @@ Authorization                  Base cm9vdDpAcGFzc3dvcmQx</dev:code>
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>ConvertTo-EpochTime</command:name>
-      <command:verb>ConvertTo</command:verb>
-      <command:noun>EpochTime</command:noun>
-      <maml:description>
-        <maml:para>Takes a DateTime value and converts it to an Unix Epoch time.</maml:para>
-      </maml:description>
-    </command:details>
-    <maml:description>
-      <maml:para>Takes a DateTime value and converts it to an Unix Epoch time.</maml:para>
-    </maml:description>
-    <command:syntax>
-      <command:syntaxItem>
-        <maml:name>ConvertTo-EpochTime</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
-          <maml:name>DateToConvert</maml:name>
-          <maml:Description>
-            <maml:para>The DateTime value to convert to an Unix Epoch time.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
-          <dev:type>
-            <maml:name>DateTime</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>None</dev:defaultValue>
-        </command:parameter>
-      </command:syntaxItem>
-    </command:syntax>
-    <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
-        <maml:name>DateToConvert</maml:name>
-        <maml:Description>
-          <maml:para>The DateTime value to convert to an Unix Epoch time.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
-        <dev:type>
-          <maml:name>DateTime</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>None</dev:defaultValue>
-      </command:parameter>
-    </command:parameters>
-    <command:inputTypes>
-      <command:inputType>
-        <dev:type>
-          <maml:name>System.DateTime</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:inputType>
-    </command:inputTypes>
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <maml:name>System.Object</maml:name>
-        </dev:type>
-        <maml:description>
-          <maml:para></maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
-    <maml:alertSet>
-      <maml:alert>
-        <maml:para></maml:para>
-      </maml:alert>
-    </maml:alertSet>
-    <command:examples>
-      <command:example>
-        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
-        <dev:code>PS C:\&gt; Get-Date '8/13/1966' | ConvertTo-EpochTime
--106851600000</dev:code>
-        <dev:remarks>
-          <maml:para>The example above takes a DateTime value and converts it to an Unix Epoch time.</maml:para>
-        </dev:remarks>
-      </command:example>
-    </command:examples>
-    <command:relatedLinks>
-      <maml:navigationLink>
-        <maml:linkText>Online Version</maml:linkText>
-        <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-EpochTime.md</maml:uri>
-      </maml:navigationLink>
-      <maml:navigationLink>
-        <maml:linkText>ConvertFrom-EpochTime</maml:linkText>
-        <maml:uri></maml:uri>
-      </maml:navigationLink>
-    </command:relatedLinks>
-  </command:command>
-  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
-    <command:details>
       <command:name>ConvertTo-Hashtable</command:name>
       <command:verb>ConvertTo</command:verb>
       <command:noun>Hashtable</command:noun>
@@ -510,7 +544,6 @@ Authorization                  Base cm9vdDpAcGFzc3dvcmQx</dev:code>
         <dev:code>Get-Content $env:APPDATA\Corvel.DCops\localsettings.json | ConvertFrom-Json | ConvertTo-Hashtable
 Name                           Value
 ----                           -----
-dcopsmasterkey                 ...
 dcopdbserver                   HBDCDCOPS02
 dcopserver                     http://hbdcdcops06.corvel.com</dev:code>
         <dev:remarks>
@@ -522,6 +555,105 @@ dcopserver                     http://hbdcdcops06.corvel.com</dev:code>
       <maml:navigationLink>
         <maml:linkText>Online Version</maml:linkText>
         <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-Hashtable.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>ConvertTo-JavaTimestamp</command:name>
+      <command:verb>ConvertTo</command:verb>
+      <command:noun>JavaTimestamp</command:noun>
+      <maml:description>
+        <maml:para>Converts a date to Java timestamp (milliseconds since Unix epoch).</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Converts a date to Java timestamp (milliseconds since Unix epoch).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>ConvertTo-JavaTimestamp</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+          <maml:name>Date</maml:name>
+          <maml:Description>
+            <maml:para>The date to convert to a Java timestamp.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+          <dev:type>
+            <maml:name>DateTime</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+        <maml:name>Date</maml:name>
+        <maml:Description>
+          <maml:para>The date to convert to a Java timestamp.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+        <dev:type>
+          <maml:name>DateTime</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.DateTime</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $Date = Get-Date
+PS C:\&gt; $Date
+Wednesday, September 2, 2020 12:45:58 PM
+PS C:\&gt; $Timestamp = ConvertTo-JavaTimestamp -Date $Date
+PS C:\&gt; $Timestamp
+1599075958216
+PS C:\&gt; ConvertFrom-JavaTimestamp -JavaTimestamp $Timestamp -LocalTime
+Wednesday, September 2, 2020 12:45:58 PM</dev:code>
+        <dev:remarks>
+          <maml:para>The above example shows converting a date to a Java timestamp and then converting the timestamp back to a date.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-Hashtable.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-JavaTimestamp.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>ConvertFrom-JavaTimestamp</maml:linkText>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -609,6 +741,105 @@ password123</dev:code>
       <maml:navigationLink>
         <maml:linkText>Online Version</maml:linkText>
         <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-PlainString.md</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>ConvertTo-UnixTime</command:name>
+      <command:verb>ConvertTo</command:verb>
+      <command:noun>UnixTime</command:noun>
+      <maml:description>
+        <maml:para>Converts a date to Unix time (seconds since Unix epoch).</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>Converts a date to Unix time (seconds since Unix epoch).</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>ConvertTo-UnixTime</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+          <maml:name>Date</maml:name>
+          <maml:Description>
+            <maml:para>The date to be converted.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+          <dev:type>
+            <maml:name>DateTime</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="0" aliases="none">
+        <maml:name>Date</maml:name>
+        <maml:Description>
+          <maml:para>The date to be converted.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+        <dev:type>
+          <maml:name>DateTime</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.DateTime</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; $Date = Get-Date
+PS C:\&gt; $Date
+Wednesday, September 2, 2020 12:45:58 PM
+PS C:\&gt; $UnixTime = ConvertTo-UnixTime-Date $Date
+PS C:\&gt; $UnixTime
+1599075958
+PS C:\&gt; ConvertFrom-UnixTime -UnixTime $UnixTime -LocalTime
+Wednesday, September 2, 2020 12:45:58 PM</dev:code>
+        <dev:remarks>
+          <maml:para>The above example shows converting a date to Unix time and then converting the value back to a date.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-PlainString.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Online Version</maml:linkText>
+        <maml:uri>https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-UnixTime.md</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>ConvertFrom-UnixTime</maml:linkText>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>

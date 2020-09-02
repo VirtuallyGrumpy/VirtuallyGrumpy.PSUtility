@@ -80,5 +80,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
 [Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertFrom-JavaTimestamp.md)
-ConvertTo-JavaTimestamp
+[ConvertTo-JavaTimestamp]()
