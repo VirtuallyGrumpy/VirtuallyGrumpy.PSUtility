@@ -26,7 +26,6 @@ Converts an object returned by ConvertFrom-Json to a hash table.
 Get-Content $env:APPDATA\Corvel.DCops\localsettings.json | ConvertFrom-Json | ConvertTo-Hashtable
 Name                           Value
 ----                           -----
-dcopsmasterkey                 ...
 dcopdbserver                   HBDCDCOPS02
 dcopserver                     http://hbdcdcops06.corvel.com
 ```
@@ -68,5 +67,6 @@ Adam Bertram, 4sysops.com
 Retrieved from https://4sysops.com/archives/convert-json-to-a-powershell-hash-table/
 
 ## RELATED LINKS
+
 [Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-Hashtable.md)
 

@@ -1,4 +1,5 @@
 function ConvertFrom-UnixTime {
+   [CmdletBinding()]
    param (
       [Parameter(ValueFromPipeline)]
       [long]$UnixTime = 0,
