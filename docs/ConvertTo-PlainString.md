@@ -1,5 +1,5 @@
 ---
-external help file:VirtuallyGrumpy.PSUtility-help.xml
+external help file: VirtuallyGrumpy.PSUtility-help.xml
 Module Name: VirtuallyGrumpy.PSUtility
 online version: https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-PlainString.md
 schema: 2.0.0
