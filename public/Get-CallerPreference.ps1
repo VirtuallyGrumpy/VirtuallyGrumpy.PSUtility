@@ -68,6 +68,7 @@ function Get-CallerPreference
             'WhatIfPreference' = 'WhatIf'
             'VerbosePreference' = 'Verbose'
             'WarningPreference' = 'WarningAction'
+            'InformationPreference' = 'InformationAction'
         }
 
 
