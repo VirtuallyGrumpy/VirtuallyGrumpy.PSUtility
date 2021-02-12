@@ -1,5 +1,9 @@
 # VirtuallyGrumpy.PSUtility Change List
+
 ## Version 1.2.0
+- Added Set-DynamicParamter
+
+## Version 1.1.1
 - Get-CallerPreference
   - Added InformationPreference preference variable
   
