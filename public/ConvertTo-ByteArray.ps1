@@ -7,9 +7,9 @@ function ConvertTo-ByteArray {
         # The string to convert to a byte array
         [string]$String
     )
-    begin{}
+    begin {}
     process {
-       return [System.Text.Encoding]::ASCII.GetBytes($String)
+        return [System.Text.Encoding]::ASCII.GetBytes($String)
     }
-    end{}
- }
+    end {}
+}

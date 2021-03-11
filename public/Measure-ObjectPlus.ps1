@@ -1,15 +1,16 @@
 function Measure-ObjectPlus {
-	[CmdletBinding()]
-	Param(
-		 [Parameter(Mandatory)]
-		 [ValidateNotNullOrEmpty()]
-		 [array]$Data,
-		 [Parameter(Mandatory)]
-		 [ValidateNotNullOrEmpty()]
-		 [string]$Property
-	)
+   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseOutputTypeCorrectly', '', Scope = 'Function', Target = '*')]
+   [CmdletBinding()]
+   Param(
+      [Parameter(Mandatory)]
+      [ValidateNotNullOrEmpty()]
+      [array]$Data,
+      [Parameter(Mandatory)]
+      [ValidateNotNullOrEmpty()]
+      [string]$Property
+   )
 
-	process {
+   process {
       #region Percentiles require sorted data
       $Data = $Data | Sort-Object -Property $Property
       #endregion
@@ -33,7 +34,8 @@ function Measure-ObjectPlus {
          $Median = ([double]$LowerMedian + [double]$UpperMedian) / 2
          Write-Debug ('[{0}] Average of lower and upper Median is <{1}>' -f $MyInvocation.MyCommand.Name, $Median)
 
-      } else {
+      }
+      else {
          Write-Debug ('[{0}] Odd number of data items' -f $MyInvocation.MyCommand.Name)
 
          $MedianIndex = [math]::Ceiling(($Data.Count - 1) / 2)
@@ -88,7 +90,7 @@ function Measure-ObjectPlus {
       #endregion
 
       #region Return measurements
-      return ,$Stats
+      return , $Stats
       #endregion
-	}
+   }
 }

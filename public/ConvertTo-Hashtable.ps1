@@ -1,4 +1,5 @@
 function ConvertTo-Hashtable {
+   [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseOutputTypeCorrectly', '', Scope = 'Function', Target = '*')]
    [CmdletBinding()]
    [OutputType('hashtable')]
    param (
@@ -24,18 +25,21 @@ function ConvertTo-Hashtable {
          )
 
          ## Return the array but don't enumerate it because the object may be pretty complex
-         return ,$collection
-      } elseif ($InputObject -is [psobject]) { ## If the object has properties that need enumeration
+         return , $collection
+      }
+      elseif ($InputObject -is [psobject]) {
+         ## If the object has properties that need enumeration
          ## Convert it to its own hash table and return it
          $hash = @{}
          foreach ($property in $InputObject.PSObject.Properties) {
             $hash[$property.Name] = ConvertTo-Hashtable -InputObject $property.Value
          }
-         return ,$hash
-      } else {
+         return , $hash
+      }
+      else {
          ## If the object isn't an array, collection, or other object, it's already a hash table
          ## So just return it.
-         return ,$InputObject
+         return , $InputObject
       }
    }
 }
