@@ -1,5 +1,5 @@
 function Set-DynamicParameter {
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', Scope = 'Function', Target = '*')]
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute('PSUseShouldProcessForStateChangingFunctions', '', Scope = 'Function', Target = '*')]
     [CmdletBinding()]
     [OutputType([System.Management.Automation.RuntimeDefinedParameterDictionary])]
     param (

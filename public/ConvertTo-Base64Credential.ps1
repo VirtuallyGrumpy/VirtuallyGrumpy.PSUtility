@@ -12,7 +12,7 @@ Function ConvertTo-Base64Credential {
       [Parameter(Mandatory = $true, ParameterSetName = 'PSCredential')]
       [pscredential]$PSCredential
    )
-   begin {}
+   
    process {
       if ($PSBoundParameters.ContainsKey('PSCredential')) {
          $UserName = $PSCredential.UserName

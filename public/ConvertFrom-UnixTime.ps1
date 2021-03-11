@@ -5,7 +5,7 @@ function ConvertFrom-UnixTime {
       [long]$UnixTime = 0,
       [switch]$LocalTime
    )
-   begin {}
+   
    process {
       if ($LocalTime) {
          ([datetime]'1970-01-01Z').ToUniversalTime().AddSeconds($UnixTime).ToLocalTime()
@@ -14,5 +14,5 @@ function ConvertFrom-UnixTime {
          ([datetime]'1970-01-01Z').ToUniversalTime().AddSeconds($UnixTime)
       }
    }
-   end {}
+   
 }
