@@ -56,11 +56,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Object
-
 ## OUTPUTS
 
 ### hashtable
-
 ## NOTES
 Credit:
 Adam Bertram, 4sysops.com
