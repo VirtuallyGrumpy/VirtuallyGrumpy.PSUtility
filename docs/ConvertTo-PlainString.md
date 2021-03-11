@@ -55,11 +55,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.Security.SecureString
-
 ## OUTPUTS
 
 ### System.String
-
 ## NOTES
 
 ## RELATED LINKS

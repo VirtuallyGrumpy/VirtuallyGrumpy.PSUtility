@@ -58,13 +58,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## INPUTS
 
 ### System.DateTime
-
 ## OUTPUTS
 
 ### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
 [Online Version](https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/docs/ConvertTo-JavaTimestamp.md)
 [ConvertFrom-JavaTimestamp]()
 

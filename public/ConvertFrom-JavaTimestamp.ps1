@@ -5,9 +5,14 @@ function ConvertFrom-JavaTimestamp {
       [long]$JavaTimestamp = 0,
       [switch]$LocalTime
    )
-   if ($LocalTime) {
-      ([datetime]'1970-01-01Z').ToUniversalTime().AddMilliseconds($JavaTimestamp).ToLocalTime()
-   } else {
-      ([datetime]'1970-01-01Z').ToUniversalTime().AddMilliseconds($JavaTimestamp)
+   begin{}
+   process{
+      if ($LocalTime) {
+         ([datetime]'1970-01-01Z').ToUniversalTime().AddMilliseconds($JavaTimestamp).ToLocalTime()
+      }
+      else {
+         ([datetime]'1970-01-01Z').ToUniversalTime().AddMilliseconds($JavaTimestamp)
+      }
    }
+   end{}
 }
