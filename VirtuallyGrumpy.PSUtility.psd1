@@ -12,7 +12,7 @@
 RootModule = 'VirtuallyGrumpy.PSUtility.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.3.0'
+ModuleVersion = '1.3.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -33,7 +33,7 @@ Copyright = '(c) 2020 Scott Horn. All rights reserved.'
 Description = 'Useful generic functions.'
 
 # Minimum version of the Windows PowerShell engine required by this module
-# PowerShellVersion = ''
+PowerShellVersion = '5.1'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
@@ -98,16 +98,16 @@ PrivateData = @{
         # Tags = @()
 
         # A URL to the license for this module.
-        # LicenseUri = ''
+        LicenseUri = 'https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/LICENSE'
 
         # A URL to the main website for this project.
-        # ProjectUri = ''
+        ProjectUri = 'https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility'
 
         # A URL to an icon representing this module.
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+        ReleaseNotes = 'https://github.com/VirtuallyGrumpy/VirtuallyGrumpy.PSUtility/blob/main/README.md'
 
         # Prerelease string of this module
         # Prerelease = ''
